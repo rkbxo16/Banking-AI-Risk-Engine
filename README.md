@@ -14,6 +14,36 @@ An end-to-end data science portfolio project exploring how machine learning can 
 - Explain model predictions and investigate fairness considerations.
 - Demonstrate model saving, reproducible inference and monitoring.
 - Present results through an interactive dashboard.
+  
+## Project Architecture
+
+```text
+Banking-AI-Risk-Engine/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── app/
+│   └── streamlit_app.py
+├── notebooks/
+│   ├── 01_data_understanding.ipynb
+│   └── 02_fraud_detection.ipynb
+├── screenshots/
+│   ├── overview.png
+│   ├── fraud_detection.png
+│   ├── model_performance.png
+│   └── monitoring.png
+├── src/
+│   └── monitoring/
+├── tests/
+│   ├── test_data_quality.py
+│   └── test_fraud_model.py
+├── README.md
+└── requirements.txt
+```
+
+The project separates interactive dashboard functionality, exploratory analysis, monitoring utilities and automated tests. GitHub Actions runs the test suite to help verify changes.
+
+Raw datasets and generated model artefacts are excluded from version control.
 
 ## Technology Stack
 
