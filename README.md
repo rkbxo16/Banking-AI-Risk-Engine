@@ -29,9 +29,13 @@ Banking-AI-Risk-Engine/
 │   └── 02_fraud_detection.ipynb
 ├── screenshots/
 │   ├── overview.png
-│   ├── fraud_detection.png
-│   ├── model_performance.png
-│   └── monitoring.png
+│   ├── fraud_detection_1.png
+│   ├── fraud_detection_2.png
+│   ├── model_performance_1.png
+│   ├── model_performance_2.png
+│   └── monitoring_1.png
+│   └── monitoring_2.png
+│   └── monitoring_3.png
 ├── src/
 │   └── monitoring/
 ├── tests/
@@ -56,9 +60,6 @@ Raw datasets and generated model artefacts are excluded from version control.
 - **Model persistence:** Joblib
 - **Development:** Jupyter Notebook, PyCharm, Git
 
-## Project Architecture
-
-Raw Data → Data Validation → Feature Engineering → Model Training → Evaluation → Explainability and Fairness Checks → Risk Scoring → Dashboard and Monitoring
 
 ## Fraud Detection
 
