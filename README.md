@@ -34,11 +34,28 @@ Raw Data → Data Validation → Feature Engineering → Model Training → Eval
 
 ### Dataset
 
-The project uses a publicly available credit-card transaction dataset containing anonymised transaction features, transaction amount and a binary fraud label.
+## Data Sources
 
-After removing exact duplicate rows, the dataset contains **283,726 transactions**, including **473 fraud cases**. Fraud represents approximately **0.167%** of the cleaned data, making class imbalance an important modelling challenge.
+### 1. Credit Card Fraud Detection
 
-The `V1`–`V28` columns are anonymised transformed features; they do not represent directly interpretable banking attributes.
+- **Source:** [Credit Card Fraud Detection dataset on Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- **Description:** An anonymised credit-card transaction dataset containing 284,807 transactions, including 492 fraudulent transactions.
+- **Purpose:** Used to develop and evaluate the fraud detection model.
+- **Target:** `Class` — 0 for legitimate transactions and 1 for fraudulent transactions.
+
+The dataset is highly imbalanced, so model evaluation considers precision, recall, F1 score, ROC-AUC and PR-AUC rather than accuracy alone.
+
+### 2. Statlog German Credit Data
+
+- **Source:** [UCI Machine Learning Repository — Statlog German Credit Data](https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data)
+- **Description:** A dataset containing 1,000 instances and 20 features for classifying applicants as good or bad credit risks.
+- **Purpose:** Used to explore credit-risk classification and evaluate a logistic regression model.
+
+### Data Handling
+
+Raw datasets and generated model artefacts are excluded from this GitHub repository. Obtain the datasets from their original sources and follow the project notebooks and setup instructions to reproduce the analysis where the required files and dependencies are available.
+
+These datasets are for educational and portfolio use. Results on historical datasets do not guarantee performance on real-world banking data.
 
 ### Modelling Approach
 
