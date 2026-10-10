@@ -110,6 +110,7 @@ The tests cover missing values, duplicate rows, infinite values, column validati
 The dashboard provides an interactive interface for fraud detection, model evaluation and monitoring.
 
 ![Banking AI Risk Engine — Overview Dashboard](screenshots/overview.png)
+
 ## Running the Dashboard
 
 ### Prerequisites
