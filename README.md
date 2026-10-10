@@ -105,6 +105,11 @@ The two model-dependent tests are skipped in CI because trained model artefacts 
 
 The tests cover missing values, duplicate rows, infinite values, column validation, model artefact loading and fraud-probability behaviour where the required files are available.
 
+## Dashboard Preview
+
+The dashboard provides an interactive interface for fraud detection, model evaluation and monitoring.
+
+![Banking AI Risk Engine — Overview Dashboard](screenshots/overview.png)
 ## Running the Dashboard
 
 ### Prerequisites
