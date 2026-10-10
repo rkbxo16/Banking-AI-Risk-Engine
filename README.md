@@ -107,31 +107,39 @@ The tests cover missing values, duplicate rows, infinite values, column validati
 
 ## Running the Dashboard
 
-Create and activate a Python virtual environment, then install the project dependencies:
+### Prerequisites
+
+- Python installed on your machine.
+- The project dependencies listed in `requirements.txt`.
+- The fraud dataset in `data/raw/credit.csv`.
+- The trained model artefacts required by the dashboard in `models/`.
+
+**Important:** Datasets and generated model artefacts are excluded from this repository. A fresh checkout will not contain these files. Obtain the dataset from its original public source and run the project's training workflow to generate the required model artefacts before launching the dashboard.
+
+### Installation
+
+From the project root, create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
-```
-
-Activate the environment on macOS/Linux:
-
-```bash
 source .venv/bin/activate
 ```
 
-Install dependencies:
+Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Launch the Streamlit dashboard from the project root:
+### Launch
+
+Once the dataset and required model artefacts are available, run:
 
 ```bash
 python -m streamlit run app/streamlit_app.py
 ```
 
-The saved fraud model, scaler and threshold must be available in the `models/` directory.
+The dashboard is a local portfolio demonstration, not a deployed banking service. Check that the model files expected by the application match the artefacts produced by the training workflow.
 
 ## Limitations
 
