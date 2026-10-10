@@ -93,17 +93,22 @@ Implemented monitoring components include:
 - Kolmogorov–Smirnov distribution comparisons.
 
 The current drift comparison uses historical training and held-out evaluation data. Production monitoring would require new incoming data, suitable alert thresholds and ongoing performance checks.
+
 ## Automated Testing
 
-The project includes automated tests for data-quality validation and fraud-model behaviour.
+The project includes automated tests for data-quality validation, model behaviour and fraud-threshold decisions.
 
 GitHub Actions runs the test suite on pushes to the main branch and pull requests.
 
-**Latest verified CI result:** 6 passed, 2 skipped.
+**Latest verified CI result:** 8 tests passed.
 
-The two model-dependent tests are skipped in CI because trained model artefacts are excluded from the repository. They can run locally when the required artefacts are available.
+The test suite covers:
+- Missing values, duplicate rows and infinite values.
+- Missing or unexpected columns.
+- Model fitting, feature scaling and probability predictions using a synthetic test model.
+- Fraud-threshold decision consistency.
 
-The tests cover missing values, duplicate rows, infinite values, column validation, model artefact loading and fraud-probability behaviour where the required files are available.
+The synthetic model allows automated testing without storing trained model artefacts in the repository. It complements, but does not replace, evaluation of the project's trained fraud detection model.
 
 ## Dashboard Preview
 
