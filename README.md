@@ -107,9 +107,36 @@ The tests cover missing values, duplicate rows, infinite values, column validati
 
 ## Dashboard Preview
 
-The dashboard provides an interactive interface for fraud detection, model evaluation and monitoring.
+## Dashboard Preview
+
+The Banking AI Risk Engine includes an interactive Streamlit dashboard for fraud detection, model evaluation and risk monitoring.
+
+### 1. Overview
+
+Provides a high-level summary of the platform and its key metrics.
 
 ![Banking AI Risk Engine — Overview Dashboard](screenshots/overview.png)
+
+### 2. Fraud Detection
+
+Supports transaction-level fraud risk assessment and prediction.
+
+![Banking AI Risk Engine — Fraud Detection](screenshots/fraud_detection_1.png)
+![Banking AI Risk Engine — Fraud Detection](screenshots/fraud_detection_2.png)
+### 3. Model Performance
+
+Presents model evaluation results to help assess fraud detection performance.
+
+![Banking AI Risk Engine — Model Performance](screenshots/model_performance_1.png)
+![Banking AI Risk Engine — Model Performance](screenshots/model_performance_2.png)
+
+### 4. Monitoring
+
+Provides monitoring views for data quality, prediction patterns and potential data drift.
+
+![Banking AI Risk Engine — Monitoring](screenshots/monitoring_1.png)
+![Banking AI Risk Engine — Monitoring](screenshots/monitoring_2.png)
+![Banking AI Risk Engine — Monitoring](screenshots/monitoring_3.png)
 
 ## Running the Dashboard
 
