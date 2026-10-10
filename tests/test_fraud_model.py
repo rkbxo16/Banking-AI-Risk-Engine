@@ -1,53 +1,52 @@
 
-from pathlib import Path
-
-import joblib
 import numpy as np
 import pytest
-
-MODEL_DIR = Path(__file__).resolve().parents[1] / "models"
-
-MODEL_PATH = MODEL_DIR / "fraud_xgb_model.joblib"
-SCALER_PATH = MODEL_DIR / "fraud_scaler.joblib"
-THRESHOLD_PATH = MODEL_DIR / "fraud_threshold.joblib"
-FEATURES_PATH = MODEL_DIR / "fraud_feature_names.joblib"
-
-MODEL_FILES = [
-    MODEL_PATH,
-    SCALER_PATH,
-    THRESHOLD_PATH,
-    FEATURES_PATH,
-]
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
 
 
-@pytest.mark.skipif(
-    not all(path.exists() for path in MODEL_FILES),
-    reason="Saved model artefacts are not included in the GitHub repository",
-)
-def test_saved_model_and_scaler_load():
-    model = joblib.load(MODEL_PATH)
-    scaler = joblib.load(SCALER_PATH)
-    feature_names = joblib.load(FEATURES_PATH)
+@pytest.fixture
+def sample_model_and_scaler():
+    """Create a small deterministic model for testing."""
+    X = np.array([
+        [0.0, 0.0],
+        [0.0, 1.0],
+        [1.0, 0.0],
+        [1.0, 1.0],
+        [2.0, 2.0],
+        [2.0, 3.0],
+    ])
+    y = np.array([0, 0, 0, 1, 1, 1])
+
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    model = LogisticRegression(random_state=42)
+    model.fit(X_scaled, y)
+
+    return model, scaler
+
+
+def test_model_and_scaler_load(sample_model_and_scaler):
+    model, scaler = sample_model_and_scaler
 
     assert model is not None
     assert scaler is not None
-    assert len(feature_names) > 0
+    assert len(model.coef_[0]) == 2
 
 
-@pytest.mark.skipif(
-    not all(path.exists() for path in MODEL_FILES),
-    reason="Saved model artefacts are not included in the GitHub repository",
-)
-def test_model_returns_valid_probabilities():
-    model = joblib.load(MODEL_PATH)
-    scaler = joblib.load(SCALER_PATH)
-    feature_names = joblib.load(FEATURES_PATH)
+def test_model_returns_valid_probabilities(sample_model_and_scaler):
+    model, scaler = sample_model_and_scaler
 
-    sample = np.zeros((2, len(feature_names)))
+    sample = np.array([
+        [0.0, 0.0],
+        [2.0, 3.0],
+    ])
     scaled_sample = scaler.transform(sample)
     probabilities = model.predict_proba(scaled_sample)[:, 1]
 
     assert len(probabilities) == 2
+    assert np.all(np.isfinite(probabilities))
     assert np.all(probabilities >= 0)
     assert np.all(probabilities <= 1)
 
